@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CALCULATOR</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator bg-dark" style="width:178px; flex-direction: row-reverse">
+            <input type="text" name="" id="inputText" disabled style="background-color:white"><br>
+            <button style="width:56px; border:0px solid " onclick="clr('0')" class="bg-dark text-light">C</button>
+            <button style="width:56px; border:0px solid " onclick="del('')" class="bg-dark text-light">DEL</button>
+            <button style="width:56px; border:0px solid " onclick="display('/')" class="bg-dark text-light">/</button><br>
+            <button style="width:56px; border:0px solid " onclick="display(7)" class="bg-dark text-light"> 7</button>
+            <button style="width:56px; border:0px solid " onclick="display(8)" class="bg-dark text-light"> 8</button>
+            <button style="width:56px; border:0px solid " onclick="display(9)" class="bg-dark text-light"> 9</button><br>
+            <button style="width:56px; border:0px solid " onclick="display(4)" class="bg-dark text-light">4</button>
+            <button style="width:56px; border:0px solid " onclick="display(5)" class="bg-dark text-light">5</button>
+            <button style="width:56px; border:0px solid " onclick="display(6)" class="bg-dark text-light">6</button><br>
+            <button style="width:56px; border:0px solid " onclick="display(1)" class="bg-dark text-light">1</button>
+            <button style="width:56px; border:0px solid " onclick="display(2)" class="bg-dark text-light">2</button>
+            <button style="width:56px; border:0px solid " onclick="display(3)" class="bg-dark text-light">3</button><br>
+            <button style="width:56px; border:0px solid " onclick="display('*')" class="bg-dark text-light">*</button>
+            <button style="width:56px; border:0px solid " onclick="display('+')" class="bg-dark text-light">+</button>
+            <button style="width:56px; border:0px solid " onclick="display('-')" class="bg-dark text-light">-</button><br>
+            <button style="width:56px; border:0px solid " onclick="display('.')" class="bg-dark text-light">.</button>
+            <button style="width:56px; border:0px solid; " onclick="display(0)" class="bg-dark text-light">0</button>
+            <button style="width:56px; border:0px solid " onclick="calculate('=')" class="bg-dark text-light">=</button>
+        </div>
+    </div>    
+    <script>
+        //var inputValue = document.getElementById('inputText').value;
+
+        /* The Variation For The Operators*/
+        var isDecimal = false;
+        var isOperator = false;
+        //var isMultiply = false;
+        //var isSubtract = false;
+        //var isAddition = false;
+        function display(Num){
+            //alert(Num);
+
+            /* The Operator For Decimal*/
+            if(Num == '.' && isDecimal == true){
+                 return;
+             }
+            if(Num=='.'){
+
+                isDecimal = true;
+            }
+            if(Num=='+' || Num=='-' || Num=='*' || Num=='/' || Num=='='){
+                if(isOperator == true){
+                    return;
+                }
+
+                isDecimal = false;
+                isOperator = true;
+            }else{
+                isOperator = false;
+
+            }
+            
+            // /* The Operator For Division*/
+            // if(Num == '/' && isDivision == true){
+            //      return;
+            //  }
+            // if(Num=='/'){
+
+            //     isDivision = true;
+            // }
+            // if(Num=='.' || Num=='+' || Num=='-' || Num=='*' || Num=='='){
+            //     isDivision = false;
+            // }
+            
+            // /* The Operator For Multiplication*/
+            // if(Num == '*' && isMultiply == true){
+            //      return;
+            //  }
+            // if(Num=='*'){
+
+            //     isMultiply = true;
+            // }
+            // if(Num=='.' || Num=='+' || Num=='-' || Num=='/' || Num=='='){
+            //     isMultiply = false;
+            // }
+            
+            // /* The Operator For Subtraction*/
+            // if(Num == '*' && isSubtract == true){
+            //      return;
+            //  }
+            // if(Num=='*'){
+
+            //     isSubtract = true;
+            // }
+            // if(Num=='.' || Num=='+' || Num=='*' || Num=='/' || Num=='='){
+            //     isSubtract = false;
+            // }
+
+             /* The Operator For Addition*/
+            // if(Num == '+' && isAddition == true){
+            //      return;
+            // }
+            // if(Num=='+'){
+
+            //     isAddition = true;
+            // }
+            // if(Num=='.' || Num=='-' || Num=='*' || Num=='/' || Num=='='){
+            //     isAddition = false;
+            // }
+
+            inputText.value += Num;
+        }
+
+            /* The Function For Calculate*/
+        function calculate(){
+            inputText.value = eval(inputText.value)
+        }
+
+            /* The Function For Clearance*/
+        function clr(){
+            inputText.value ='';
+            a = 0;
+            b = 0;
+            currentNum = inputText.value;
+        }
+
+
+        function del(){
+            inputText.value = inputText.value.slice(0,-1);
+        }
+
+        /*var operator;
+        var firstEntry;
+        var secondEntry;*/
+
+        //if (firstEntry==);
+        
+        // var number = [1,2,3,4];
+        // var fruit = ['Orange','Watermelon','Grape','Lemon'];
+        // console.log(fruit[4])
+
+        // var register = [{name:"Yunus",classes:["jss1","jss2"]},{name:"Hassan"},{name:"Yusuf"},[1,2,3,4]];
+        // const myObj = {product:["rice","beans","gari"]};
+        // console.log(myObj.product[2]);
+        // console.log (register[1].name);
+        // console.log(myObj.product[0]);
+        // console.log(myObj.product[1]);
+        // console.log(register[0].classes[1]);
+         
+        // var str = "Hello World!";
+        // document.write(str);
+        // console.log(str.length);
+
+        // var str = "hey";
+        // var str1 = "how";
+        // console.log(str1 + " " +str);
+
+        // var str = 'it\'s a boy';
+        // console.log(str);
+        // //alert(str);
+        // //document.write(str);
+
+        // var str = 'my name is yunus';
+        // var newStr = str.replace('my', 'yushroh\'s');
+        // console.log(newStr);
+    </script>
+</body>
+</html>
